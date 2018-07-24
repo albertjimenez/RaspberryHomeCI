@@ -6,11 +6,11 @@ import requests
 
 # Sends the output of the test or an OK message through slack API
 class SlackSender:
-    def __init__(self, slack_url: "str"):
+    def __init__(self, slack_url):
         self.slack_url = slack_url
 
-    def send_msg(self, msg: "str"):
-        def f(url: "str", m: "str"):
+    def send_msg(self, msg):
+        def f(url, m):
             r = requests.post(url, json={"text": m})
             if r.status_code != 200:
                 # TODO log the errors
