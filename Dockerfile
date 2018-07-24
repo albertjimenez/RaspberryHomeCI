@@ -12,4 +12,4 @@ RUN pip install -r RaspberryHomeCI/requirements.txt
 # Expose the port 5000 which is used by Flask
 EXPOSE 5000
 # Final command
-CMD ["python", "RaspberryHomeCI/main/main.py"]
+CMD ["python", "RaspberryHomeCI/main/main.py", "YOUR_SLACK_WEBHOOK"]
