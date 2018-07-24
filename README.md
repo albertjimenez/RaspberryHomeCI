@@ -5,15 +5,15 @@ The purpose is to install this repo into a Raspberry Pi 1b using Raspbian and Py
 ## Goals
 
  - [x] Mount Flask server to accept the web hook from Github/Bitbucket
- - [ ] Manage File System for cloning / pulling 
- - [ ] Send output to Slack Channel or Telegram
+ - [x] Send output to Slack Channel or Telegram
+ - [ ] Manage File System for cloning / pulling
  - [ ] Refactor it!
 
 ## Installation
 
  1. Clone this repository
  2. Ensure python 3 is installed and type `pip install -r requirements.txt`
- 3. Edit the server variables in the file `main.py`
+ 3. Edit the server variables in the file `main.py` using `app.config['VARIABLE_NAME'] = ""` in my case the file generate_app is a template for creating the Flask app object with my variable SLACK_WEBHOOK (url to send the notifications)
  4. Run the server with `python3 main.py`
 
 ## Docker installation
