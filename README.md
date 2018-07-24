@@ -13,8 +13,7 @@ The purpose is to install this repo into a Raspberry Pi 1b using Raspbian and Py
 
  1. Clone this repository
  2. Ensure python 3 is installed and type `pip install -r requirements.txt`
- 3. Edit the server variables in the file `main.py` using `app.config['VARIABLE_NAME'] = ""` in my case the file generate_app is a template for creating the Flask app object with my variable SLACK_WEBHOOK (url to send the notifications)
- 4. Run the server with `python3 main.py`
+ 3. Run the server with `python3 main.py YOUR_SLACK_WEBHOOK_URL`
 
 ## Docker installation
 The Dockerfile is on this repo if you want to check it out. It clones this repo and perform the install of the dependencies plus the execution of the flask server mapped with the 5000 port.

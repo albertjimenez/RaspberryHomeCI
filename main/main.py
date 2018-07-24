@@ -1,15 +1,25 @@
-from flask import jsonify
+from sys import argv
+
+from flask import jsonify, Flask
 from flask import request
-from generate_app import generate_flask_app
 
 from utils.slack_sender import SlackSender
 
 # -*- coding: utf-8 -*-
-# Flask APP
-app = generate_flask_app(
-    __name__)  # Initialize the app with your configurations e.g. app.config["SLACK_WEBHOOK"] = "....."
 
-slack_sender = SlackSender(app.config["SLACK_WEBHOOK"])
+# Check if the SLACK_WEBHOOK L it exists
+SLACK_WEBHOOK = ""
+if len(argv) != 2:
+    print("Error, argument SLACK_WEBHOOK not present in execution. Usage: python3 main.py SLACK_WEBHOOK_URL_STRING")
+    exit(1)
+else:
+    SLACK_WEBHOOK = argv[1]
+
+
+# Flask APP
+app = Flask(__name__)
+
+slack_sender = SlackSender(SLACK_WEBHOOK)
 
 
 @app.route("/java/maven", methods=["POST"])
