@@ -2,8 +2,7 @@ from sys import argv
 
 from flask import jsonify, Flask
 from flask import request
-
-from utils.slack_sender import SlackSender
+from slack_sender import SlackSender
 
 # -*- coding: utf-8 -*-
 
