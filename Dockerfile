@@ -1,5 +1,5 @@
 # Image of latest python 3.7 currently
-FROM resin/raspberry-pi-python:latest
+FROM resin/raspberry-pi-python:3.6-wheezy
 # Define a variable with my GIT repo and the folder
 ENV repo_url https://github.com/albertjimenez/RaspberryHomeCI.git
 ENV repo_folder RaspberryHomeCI
