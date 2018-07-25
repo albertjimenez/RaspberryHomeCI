@@ -17,5 +17,6 @@ The purpose is to install this repo into a Raspberry Pi 1b using Raspbian and Py
 
 ## Docker installation
 The Dockerfile is on this repo if you want to check it out. It clones this repo and perform the install of the dependencies plus the execution of the flask server mapped with the 5000 port.
-- `docker pull beruto/raspberry-home-ci`
+You should edit the Dockerfile with your SLACK_WEBHOOK_URL
+- `docker build -t raspberry-home-ci .`
  - `docker run --rm -p 5000:5000 --name=raspberry-home-pi -t raspberry-home-ci`
