@@ -2,6 +2,7 @@ from sys import argv
 
 from flask import jsonify, Flask
 from flask import request
+from handler import HandlerTest
 from slack_sender import SlackSender
 
 # -*- coding: utf-8 -*-
@@ -19,13 +20,15 @@ else:
 app = Flask(__name__)
 
 slack_sender = SlackSender(SLACK_WEBHOOK)
+handler_test = HandlerTest(slack_sender)
 
 
 @app.route("/java/maven", methods=["POST"])
 def java_maven():
-    print("Webhook MAVEN entered \n{0}".format(request))
-    slack_sender.send_msg("Test from python")
-    return jsonify([1])
+    repository_details = request.get_json()["repository"]
+    full_name, clone_url = repository_details["full_name"], repository_details["clone_url"]
+    handler_test.handle_java_maven(full_name, clone_url)
+    return jsonify(repository_details)
 
 
 @app.route("/npm", methods=["POST"])
@@ -37,4 +40,4 @@ def npm():
 
 # Main
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
