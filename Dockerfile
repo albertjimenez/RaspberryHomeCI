@@ -5,6 +5,10 @@ ENV repo_url https://github.com/albertjimenez/RaspberryHomeCI.git
 ENV repo_folder RaspberryHomeCI
 # Update the package list
 RUN apt-get update
+# Shrink image size
+RUN apt-get clean autoclean
+RUN apt-get autoremove --yes
+RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 # Clone my REPO containing all the python code
 RUN git clone ${repo_url}
 # Pull the contents if the container already exists
