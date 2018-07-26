@@ -26,6 +26,7 @@ class HandlerTest:
             self.msg_sender.send_msg("Successfully tested")
 
     def handle_npm(self, full_name: "str", clone_url: "str"):
+        self._git_clone_pull(full_name, clone_url)
         project_name = full_name.split("/")[1]
         result = self._run_process("npm", "--prefix", "./{0}".format(project_name), "install",
                                    "./{0}".format(project_name), "--production")

@@ -34,8 +34,11 @@ def java_maven():
 @app.route("/npm", methods=["POST"])
 def npm():
     print("Webhook NPM entered \n{0}".format(request))
+    repository_details = request.get_json()["repository"]
     slack_sender.send_msg("Test from python")
-    return jsonify([1, 2, 3])
+    full_name, clone_url = repository_details["full_name"], repository_details["clone_url"]
+    handler_test.handle_npm(full_name, clone_url)
+    return jsonify(repository_details)
 
 
 # Main
