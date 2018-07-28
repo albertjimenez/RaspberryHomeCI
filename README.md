@@ -6,7 +6,7 @@ The purpose is to install this repo into a Raspberry Pi 1b using Raspbian and Py
 
  - [x] Mount Flask server to accept the web hook from Github/Bitbucket
  - [x] Send output to Slack Channel or Telegram
- - [ ] Manage File System for cloning / pulling
+ - [x] Manage File System for cloning / pulling
  - [ ] Refactor it!
 
 ## Installation
