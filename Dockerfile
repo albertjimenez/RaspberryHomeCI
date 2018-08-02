@@ -21,4 +21,4 @@ RUN pip install -r requirements.txt
 # Expose the port 5000 which is used by Flask
 EXPOSE 5000
 # Final command
-CMD ["python", "app/main.py", "YOUR_SLACK_WEBHOOK"]
+CMD ["python", "app/main.py"]
