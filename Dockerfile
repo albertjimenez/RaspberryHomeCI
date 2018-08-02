@@ -3,6 +3,7 @@ FROM resin/raspberry-pi-python:3.6-wheezy
 # Define a variable with my GIT repo and the folder
 ENV repo_url https://github.com/albertjimenez/RaspberryHomeCI.git
 ENV repo_folder RaspberryHomeCI
+ENV SLACK_WEBHOOK 1
 # Update the package list
 RUN apt-get update
 # Shrink image size
