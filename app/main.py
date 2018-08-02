@@ -9,7 +9,7 @@ from slack_sender import SlackSender
 # -*- coding: utf-8 -*-
 
 # Check if the SLACK_WEBHOOK exists as environmental variable or as an argument
-SLACK_WEBHOOK = os.getenv('SLACK_WEBHOOK', "")
+SLACK_WEBHOOK = os.getenv('SLACK_WEBHOOK', "1")
 if SLACK_WEBHOOK == "1" and len(argv) != 2:
     print("Error, argument SLACK_WEBHOOK not present in execution or as an enviornmental variable. "
           "Usage: python3 main.py SLACK_WEBHOOK_URL_STRING")
@@ -17,7 +17,6 @@ if SLACK_WEBHOOK == "1" and len(argv) != 2:
 else:
     if SLACK_WEBHOOK == "1":
         SLACK_WEBHOOK = argv[1]
-
 
 # Flask APP
 app = Flask(__name__)
