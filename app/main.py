@@ -1,9 +1,11 @@
 import os
 from sys import argv
 
+from Services import space
 from flask import jsonify, Flask
 from flask import request
 from handler import HandlerTest
+from psutil import cpu_percent
 from slack_sender import SlackSender
 
 # -*- coding: utf-8 -*-
@@ -41,6 +43,21 @@ def npm():
     full_name, clone_url = repository_details["full_name"], repository_details["clone_url"]
     handler_test.handle_npm(full_name, clone_url)
     return jsonify(repository_details)
+
+
+@app.route("/api/hdd_info")
+def get_space():
+    free_space, total = space()
+    res_space = {
+        "free_space": free_space,
+        "total": total
+    }
+    return jsonify(res_space)
+
+
+@app.route("/api/cpu_info")
+def cpu_info():
+    return jsonify({"cpu": cpu_percent()})
 
 
 # Main
