@@ -1,6 +1,6 @@
 import os
 from sys import argv
-
+from flask_cors import CORS
 from Services import space
 from flask import jsonify, Flask
 from flask import request
@@ -62,4 +62,5 @@ def cpu_info():
 
 # Main
 if __name__ == '__main__':
+    CORS(app)
     app.run(host='0.0.0.0', debug=True)
